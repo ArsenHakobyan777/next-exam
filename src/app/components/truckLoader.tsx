@@ -1,6 +1,5 @@
 'use client'
 
-import React from 'react'
 
 export default function TruckLoader() {
   return (
@@ -75,7 +74,6 @@ export default function TruckLoader() {
           </svg>
         </div>
 
-        {/* Truck Tires */}
         <div className="absolute bottom-0 z-10 flex h-fit w-[130px] items-center justify-between pl-[15px] pr-[10px]">
           <svg
             xmlns="http://www.w3.org/2000/svg"

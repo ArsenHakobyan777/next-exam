@@ -14,20 +14,18 @@ function Nav() {
   const [isOpen, setIsOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
-  // Автоматически определяем ширину экрана браузера
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 1100);
     };
     
-    handleResize(); // Проверка при загрузке
+    handleResize(); 
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   return (
     <nav className="relative">
-      {/* Кнопка бургера (показывается, если экран меньше 1100px) */}
       {isMobile ? (
         <div>
           <button
@@ -38,7 +36,6 @@ function Nav() {
             {isOpen ? "✕" : "☰"}
           </button>
 
-          {/* Выпадающее меню для мобильных и ноутбуков */}
           {isOpen && (
             <ul className="absolute right-0 top-12 w-56 flex flex-col gap-4 bg-gray-800 p-5 rounded-xl shadow-2xl border border-gray-700 z-50">
               {menuItem.map((item) => (
@@ -48,7 +45,6 @@ function Nav() {
           )}
         </div>
       ) : (
-        /* Обычное десктопное меню для больших мониторов */
         <ul className="flex items-center gap-6">
           {menuItem.map((item) => (
             <Navitem key={item.id} id={item.id} title={item.title} url={item.url} />
